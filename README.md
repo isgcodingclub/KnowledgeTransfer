@@ -4,4 +4,7 @@
 <h3>Creation of the Python environments</h3>
 <a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/tutorial_environments/environment_and_jupyter.html">How to create environments on Windows</a>
 
+<h3>Working with tabular data</h3>
+<a href = "">Pandas. Work with csv and excel files</a>
+
 
