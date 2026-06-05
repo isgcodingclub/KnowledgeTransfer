@@ -6,5 +6,7 @@
 
 <h3>Working with tabular data</h3>
 <a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/lesson_7_the_one.ipynb">Pandas. Work with csv and excel files</a>
-
+<br>
+<h3>Object oriented programming</h3>
+<a href = "">Object oriented programming key concepts</a>
 
