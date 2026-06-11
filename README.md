@@ -20,15 +20,22 @@
 <li>Heatmaps</li>
 <li>Venn diagrams</li>
 </ul>
-
+<br>
 <h3>Biopython</h3>
 
 <ul><li>Needleman Wynsch Algorithm (global alignment used for framework extractor)</li>
 <li>Smith Waterman (local alignment)</li>
 <li>PyMSaViz - plotting the alignment</li>
 <li>Working with fasta and fastq files.</li>
-<li>AB1 files</li>
+<li>AB1 files (Sanger sequencing files)</li>
 </ul>
+
+<br>
+<h3>App programming</h3>
+<ul><li>Basic interface and common widgets</li>
+<li>Multipage app</li>
+<li>html-css for report generation</li>
+</li></ul>
 
 
 
