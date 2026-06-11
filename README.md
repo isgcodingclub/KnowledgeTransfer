@@ -35,6 +35,7 @@
 <ul><li>Basic interface and common widgets</li>
 <li>Multipage app</li>
 <li>html-css for report generation</li>
+<li>Packaging app to exe using Pyinstaller</li>
 </li></ul>
 
 
