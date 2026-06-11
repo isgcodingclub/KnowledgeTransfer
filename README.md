@@ -10,7 +10,7 @@
 <h3>Object oriented programming</h3>
 <a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/Object_oriented.ipynb">Object oriented programming key concepts</a>
 
-<h3>Matplotlib and Seaborn(plots)</h3>
+<h3>Matplotlib and Seaborn (plots)</h3>
 
 <ul><li>Scatter plots and line plots</li>
 <li>Bar charts and histograms</li>
@@ -20,6 +20,16 @@
 <li>Heatmaps</li>
 <li>Venn diagrams</li>
 </ul>
+
+<h3>Biopython</h3>
+
+<ul><li>Needleman Wynsch Algorithm (global alignment used for framework extractor)</li>
+<li>Smith Waterman (local alignment)</li>
+<li>PyMSaViz - plotting the alignment</li>
+<li>Working with fasta and fastq files.</li>
+<li>AB1 files</li>
+</ul>
+
 
 
 
