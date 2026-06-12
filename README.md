@@ -13,7 +13,7 @@
 <h3>Matplotlib and Seaborn (plots)</h3>
 
 <ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson_9_Nice_graphs_updated.ipynb">Scatter plots and line plots</a></li>
-<li>Bar charts and histograms</li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson%2010.ipynb">Bar charts and histograms</a></li>
 <li>Stacked bar charts</li>
 <li>Pie charts</li>
 <li>Categorical stripplots</li>
