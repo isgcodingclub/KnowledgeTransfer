@@ -23,9 +23,8 @@
 <br>
 <h3>Biopython</h3>
 
-<ul><li>Needleman Wynsch Algorithm (global alignment used for framework extractor)</li>
+<ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/tree/main/alignment_algorithms">Needleman Wynsch Algorithm (global alignment used for framework extractor, PyMSAViz</a></li>
 <li>Smith Waterman (local alignment)</li>
-<li>PyMSaViz - plotting the alignment</li>
 <li>Working with fasta and fastq files.</li>
 <li>AB1 files (Sanger sequencing files)</li>
 </ul>
