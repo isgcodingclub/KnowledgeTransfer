@@ -33,7 +33,7 @@
 <h3>App programming</h3>
 <ul><li>Basic interface and common widgets</li>
 <li>Multipage app</li>
-<li>html-css for report generation</li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/html_css_docs/HTML_CHEET_SHEET.html">html-css for report generation</a></li>
 <li>Packaging app to exe using Pyinstaller</li>
 </li></ul>
 
