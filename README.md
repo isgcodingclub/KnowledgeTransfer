@@ -38,7 +38,7 @@
 </li></ul>
 <br>
 <h3>Linux stuff</h3>
-<ul><li>Humanisation using biophi</li>
+<ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/biophi_tutorial.html">Humanisation using biophi</a></li>
 <li>Nanobody builder</li>
 <li>fastqc</li>
 <li>trimmomatic</li>
