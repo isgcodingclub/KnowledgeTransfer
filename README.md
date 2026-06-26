@@ -14,7 +14,7 @@
 
 <ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson_9_Nice_graphs_updated.ipynb">Scatter plots and line plots</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson%2010.ipynb">Bar charts and histograms</a></li>
-<li>Stacked bar charts</li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Stacked_bar_charts.ipynb">Stacked bar charts</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson11_Pie_chart.ipynb">Pie charts</a></li>
 <li>Categorical stripplots</li>
 <li>Heatmaps</li>
