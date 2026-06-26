@@ -18,7 +18,7 @@
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson11_Pie_chart.ipynb">Pie charts</a></li>
 <li>Categorical stripplots</li>
 <li>Heatmaps</li>
-<li>Venn diagrams</li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/venn_diagrams.ipynb">Venn diagrams</a></li>
 </ul>
 <br>
 <h3>Biopython</h3>
