@@ -16,7 +16,7 @@
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson%2010.ipynb">Bar charts and histograms</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Stacked_bar_charts.ipynb">Stacked bar charts</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Lesson11_Pie_chart.ipynb">Pie charts</a></li>
-<li>Categorical stripplots</li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/Seaborn_stripplot.ipynb">Categorical stripplots</a></li>
 <li>Heatmaps</li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/plotting_graphs/venn_diagrams.ipynb">Venn diagrams</a></li>
 </ul>
