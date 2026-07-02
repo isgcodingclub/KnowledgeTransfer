@@ -1,1 +1,97 @@
+<!DOCTYPE = html>
+<html>
+<head><title>How to package the applications using pyinstaller</title>
+<style>
+.highlight {background-color : #D3D3D3;}
+</style>
+</head>
+<body>
+<h1>How to package the applications into the exe files using pyinstaller</h1>
+<p>1. First you will need to install pyinstaller</p>
+<p>In the PyCharm terminal type the following command</p>
+<code><pre>
+pip install pyinstaller
+</pre></code>
+<p>Next after the pyinstaller is installed, identify the script file that has your interface</p>
+<pre><code>
+pyinstaller --windowed --onefile interface_main.py
+</code></pre>
+<p>In your case the main script migth be called differenly substitute <code>interface_main.py
+</code> with yiur name</p>
+<p>Once build is complete in your directory you will get two folders</p>
+<ul>
+<li>build</li>
+<li>dist</li>
+<li>your_spript_name.spec in this case it is called interface_main.spec</li>
+</ul>
+<br>
+<p>Open the spec file. The contents should be similar to the ones shown below:</p>
+<p>The lines you will need to change are highligted:
+<code><pre>
+# -*- mode: python ; coding: utf-8 -*-
+
+a = Analysis(
+    ['interface_main.py'],
+    pathex=[],
+    binaries=[],
+    <p class = "highlight">datas=[],</p>
+    hiddenimports=[],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    noarchive=False,
+    optimize=0,
+)
+pyz = PYZ(a.pure)
+
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    [],
+    name='interface_main',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=False,
+<p class = "highlight"> </p>
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+)
+</pre></code>
+<p>In datas field highlighted above you will need to add full paths of your files from the assets folder. </p>
+<pre></code>
+datas=[('C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/assets/Human_unique_VHHS.fasta', 'assets'),
+('C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/assets/Lama.png', 'assets'),
+('C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/assets/Lama2.png', 'assets'),
+('C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/assets/JosefinSans-Medium.ttf', 'assets'),
+('C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/assets/style.qss', 'assets'),]
+
+</code></pre>
+<p>If your script uses the the <code>Bio.Align</code> module, you will also need to add path to <code>site-packages/Bio/Align/substitution_matrices/data</code> file and
+place it to <code>'Bio/Align/substitution_matrices/data'</code></p>
+<p>e.g</p>
+<code><pre>('C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/.venv/Lib/site-packages/Bio/Align/substitution_matrices/data', 'Bio/Align/substitution_matrices/data'),</pre></code>
+<p>If your script uses pyMSAViz you will need to add the following to datas</p>
+<pre></code>
+('C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/.venv/Lib/site-packages/pymsaviz/config/color_schemes.tsv', 'pymsaviz/config')
+</code></pre>
+<p>After the console = False (highlighted in gray) ad path to your icon. 
+<pre><code>
+icon='C:/Users/anastasija.gricenko/PycharmProjects/Himanisation_sop_version/assets/Lama.ico',
+</code></pre>
+<p>Finally run the command</p>
+<code>pyinstaller script_name.spec</code>
+<p>In this example <code>pyinstallerinterface_main.spec</code></p>
+<p>Once the command will be finished, go to the dist folder and collect packaged .exe file</p>
+</body>
+</html>
 
