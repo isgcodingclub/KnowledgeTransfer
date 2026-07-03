@@ -44,6 +44,9 @@
 <li>trimmomatic</li>
 <li>fastq-join</li></ul>
 
+<h3>Other stuff</h3>
+<ul><li>Levensthein distances and ratios</li></ul>
+
 
 
 
