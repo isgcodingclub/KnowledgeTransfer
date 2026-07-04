@@ -47,6 +47,9 @@
 <h3>Other stuff</h3>
 <ul><li>Levensthein distances and ratios</li></ul>
 
+<h3>Tips and tricks</h3>
+<p>To fix Pycharm intendation error do Ctrl Alt I</p>
+
 
 
 
