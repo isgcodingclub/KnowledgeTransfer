@@ -39,7 +39,7 @@
 <br>
 <h3>Linux stuff</h3>
 <ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/biophi_server-ready.html">Humanisation using biophi</a></li>
-<li>Nanobody builder</li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/nb_builder_instructions12.html"</a>Nanobody builder</li>
 <li>fastqc</li>
 <li>trimmomatic</li>
 <li>fastq-join</li></ul>
