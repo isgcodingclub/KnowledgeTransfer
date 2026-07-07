@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>How to use nanobody builder</title>
+    <link href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme@0.0.1/prism-okaidia.min.css" rel="stylesheet">
+    
+</head>
+<body>
+<h1>How to install and use nanobody builder</h1>
+<h3>Installation</h3>
+<p>You will need to install it only once, after that you can just use it</p>
+<p>Steps below refer to installation</p>
+<br>
+<p>1. create the <code>conda</code> environment</p>
+<p>The command below just checks that conda is installed</p>
+<pre>(base) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ conda --version
+conda 24.11.3</pre>
+<p>The command below creates the environment. I named it <code>nb_builder</code>, name can be any as long it is one word</p> 
+<pre>
+(base) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ conda create --name nb_builder
+Channels:
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 24.11.3
+    latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/iso-labtech/anaconda3/envs/nb_builder
+
+
+
+Proceed ([y]/n)? y <b>Important you will need to type y and <button>Enter</button> here</b>
+
+
+Downloading and Extracting Packages:
+
+Preparing transaction: done
+Verifying transaction: done
+Executing transaction: done
+#
+# To activate this environment, use
+#
+#     $ conda activate nb_builder
+#
+# To deactivate an active environment, use
+#
+#     $ conda deactivate
+</pre>
+<p>If you are seeing the instructions above the environment has been created, now it needs to be activated</p>
+<pre>
+(base) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ conda activate nb_builder</pre>
+
+<p>2. We will need to install dependencies, that are necessary to run nanobody builder</p>
+<ul><li>openmm pdbfixer</li><li>ANARCI</li></ul>
+<br>
+<p><b>installing the <code>openmm pdbfixer</code></b></p>
+<pre>
+(nb_builder) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ conda install -c conda-forge openmm pdbfixer
+Channels:
+ - conda-forge
+ - defaults
+Platform: linux-64
+Collecting package metadata (repodata.json): done
+Solving environment: done
+
+
+==&gt; WARNING: A newer version of conda exists. &lt;==
+    current version: 24.11.3
+    latest version: 26.3.2
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: /home/iso-labtech/anaconda3/envs/nb_builder
+
+  added / updated specs:
+    - openmm
+    - pdbfixer
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    _openmp_mutex-4.5          |           20_gnu          28 KB  conda-forge
+    bzip2-1.0.8                |       hda65f42_9         254 KB  conda-forge
+    ca-certificates-2026.4.22  |       hbd8a1cb_0         128 KB  conda-forge
+    cuda-nvrtc-13.2.78         |       hecca717_0        34.0 MB  conda-forge
+    cuda-version-13.2          |       he2cc418_3          21 KB  conda-forge
+    ld_impl_linux-64-2.45.1    |default_hbd61a6d_102         711 KB  conda-forge
+    legacy-cgi-2.6.4           |     pyh742d864_0          31 KB  conda-forge
+    libblas-3.11.0             |7_h4a7cf45_openblas          18 KB  conda-forge
+    libcblas-3.11.0            |7_h0358290_openblas          18 KB  conda-forge
+    libcufft-12.2.0.46         |       hecca717_0       175.9 MB  conda-forge
+    libexpat-2.8.0             |       hecca717_0          75 KB  conda-forge
+    libffi-3.5.2               |       h3435931_0          57 KB  conda-forge
+    libgcc-15.2.0              |      he0feb66_19        1017 KB  conda-forge
+    libgfortran-15.2.0         |      h69a702a_19          27 KB  conda-forge
+    libgfortran5-15.2.0        |      h68bc16d_19         2.4 MB  conda-forge
+    libgomp-15.2.0             |      he0feb66_19         590 KB  conda-forge
+    liblapack-3.11.0           |7_h47877c9_openblas          18 KB  conda-forge
+    liblzma-5.8.3              |       hb03c661_0         111 KB  conda-forge
+    libmpdec-4.0.0             |       hb03c661_1          90 KB  conda-forge
+    libopenblas-0.3.33         |pthreads_h94d23a6_0         5.7 MB  conda-forge
+    libsqlite-3.53.1           |       h0c1763c_0         933 KB  conda-forge
+    libstdcxx-15.2.0           |      h934c35e_19         5.6 MB  conda-forge
+    libuuid-2.42               |       h5347b49_0          39 KB  conda-forge
+    libzlib-1.3.2              |       h25fd6f3_2          62 KB  conda-forge
+    ncurses-6.6                |       hdb14827_0         897 KB  conda-forge
+    numpy-2.4.4                |  py314h2b28147_0         8.5 MB  conda-forge
+    opencl-headers-2025.06.13  |       hecca717_0          54 KB  conda-forge
+    openmm-8.5.1               |  py314h999fc10_0        14.3 MB  conda-forge
+    openssl-3.6.2              |       h35e630c_0         3.0 MB  conda-forge
+    pdbfixer-1.12              |     pyhd8ed1ab_1         534 KB  conda-forge
+    pip-26.1.1                 |     pyh145f28c_0         1.1 MB  conda-forge
+    python-3.14.4              |habeac84_100_cp314        35.0 MB  conda-forge
+    readline-8.3               |       h853b02a_0         337 KB  conda-forge
+    scipy-1.17.1               |  py314hf07bd8e_0        16.4 MB  conda-forge
+    setuptools-82.0.1          |     pyh332efcf_0         625 KB  conda-forge
+    tk-8.6.13                  |noxft_h366c992_103         3.1 MB  conda-forge
+    tzdata-2025c               |       hc9c84f9_1         116 KB  conda-forge
+    zstd-1.5.7                 |       hb78ec9c_6         587 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:       312.2 MB
+
+The following NEW packages will be INSTALLED:
+
+  _openmp_mutex      conda-forge/linux-64::_openmp_mutex-4.5-20_gnu 
+  bzip2              conda-forge/linux-64::bzip2-1.0.8-hda65f42_9 
+  ca-certificates    conda-forge/noarch::ca-certificates-2026.4.22-hbd8a1cb_0 
+  cuda-nvrtc         conda-forge/linux-64::cuda-nvrtc-13.2.78-hecca717_0 
+  cuda-version       conda-forge/noarch::cuda-version-13.2-he2cc418_3 
+  ld_impl_linux-64   conda-forge/linux-64::ld_impl_linux-64-2.45.1-default_hbd61a6d_102 
+  legacy-cgi         conda-forge/noarch::legacy-cgi-2.6.4-pyh742d864_0 
+  libblas            conda-forge/linux-64::libblas-3.11.0-7_h4a7cf45_openblas 
+  libcblas           conda-forge/linux-64::libcblas-3.11.0-7_h0358290_openblas 
+  libcufft           conda-forge/linux-64::libcufft-12.2.0.46-hecca717_0 
+  libexpat           conda-forge/linux-64::libexpat-2.8.0-hecca717_0 
+  libffi             conda-forge/linux-64::libffi-3.5.2-h3435931_0 
+  libgcc             conda-forge/linux-64::libgcc-15.2.0-he0feb66_19 
+  libgfortran        conda-forge/linux-64::libgfortran-15.2.0-h69a702a_19 
+  libgfortran5       conda-forge/linux-64::libgfortran5-15.2.0-h68bc16d_19 
+  libgomp            conda-forge/linux-64::libgomp-15.2.0-he0feb66_19 
+  liblapack          conda-forge/linux-64::liblapack-3.11.0-7_h47877c9_openblas 
+  liblzma            conda-forge/linux-64::liblzma-5.8.3-hb03c661_0 
+  libmpdec           conda-forge/linux-64::libmpdec-4.0.0-hb03c661_1 
+  libopenblas        conda-forge/linux-64::libopenblas-0.3.33-pthreads_h94d23a6_0 
+  libsqlite          conda-forge/linux-64::libsqlite-3.53.1-h0c1763c_0 
+  libstdcxx          conda-forge/linux-64::libstdcxx-15.2.0-h934c35e_19 
+  libuuid            conda-forge/linux-64::libuuid-2.42-h5347b49_0 
+  libzlib            conda-forge/linux-64::libzlib-1.3.2-h25fd6f3_2 
+  ncurses            conda-forge/linux-64::ncurses-6.6-hdb14827_0 
+  numpy              conda-forge/linux-64::numpy-2.4.4-py314h2b28147_0 
+  ocl-icd            conda-forge/linux-64::ocl-icd-2.3.3-hb9d3cd8_0 
+  ocl-icd-system     conda-forge/linux-64::ocl-icd-system-1.0.0-1 
+  opencl-headers     conda-forge/linux-64::opencl-headers-2025.06.13-hecca717_0 
+  openmm             conda-forge/linux-64::openmm-8.5.1-py314h999fc10_0 
+  openssl            conda-forge/linux-64::openssl-3.6.2-h35e630c_0 
+  pdbfixer           conda-forge/noarch::pdbfixer-1.12-pyhd8ed1ab_1 
+  pip                conda-forge/noarch::pip-26.1.1-pyh145f28c_0 
+  python             conda-forge/linux-64::python-3.14.4-habeac84_100_cp314 
+  python_abi         conda-forge/noarch::python_abi-3.14-8_cp314 
+  readline           conda-forge/linux-64::readline-8.3-h853b02a_0 
+  rocm-core          conda-forge/linux-64::rocm-core-7.0.2-h54a6638_0 
+  scipy              conda-forge/linux-64::scipy-1.17.1-py314hf07bd8e_0 
+  setuptools         conda-forge/noarch::setuptools-82.0.1-pyh332efcf_0 
+  tk                 conda-forge/linux-64::tk-8.6.13-noxft_h366c992_103 
+  tzdata             conda-forge/noarch::tzdata-2025c-hc9c84f9_1 
+  zstd               conda-forge/linux-64::zstd-1.5.7-hb78ec9c_6 
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+                                                                                
+Preparing transaction: done                                                     
+Verifying transaction: done                                                     
+Executing transaction: done 
+</pre>
+<p> 3. Installing Anarci</p>
+
+
+<pre>
+(nb_builder) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ conda install -c bioconda anarci          
+Channels:                                                                       
+ - bioconda                                                                     
+ - defaults                                                                     
+ - conda-forge                                                                  
+Platform: linux-64                                                              
+Collecting package metadata (repodata.json): done                               
+Solving environment: done                                                       
+                                                                                
+                                                                                
+==&gt; WARNING: A newer version of conda exists. &lt;==                               
+    current version: 24.11.3                                                    
+    latest version: 26.3.2                                                      
+                                                                                
+Please update conda by running                                                  
+                                                                                
+    $ conda update -n base -c defaults conda                                    
+                                                                                
+                                                                                
+                      
+## Package Plan ##
+
+  environment location: /home/iso-labtech/anaconda3/envs/nb_builder
+
+  added / updated specs:
+    - anarci
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    biopython-1.86             |  py314h47b2149_0        14.4 MB
+    libgcc-ng-15.2.0           |      h69a702a_19          27 KB  conda-forge
+    libgfortran-ng-15.2.0      |      h69a702a_19          27 KB  conda-forge
+    libstdcxx-ng-15.2.0        |      hdf11a46_19          27 KB  conda-forge
+    zlib-1.3.2                 |       h25fd6f3_2          94 KB  conda-forge
+    ------------------------------------------------------------
+                                           Total:        14.5 MB
+
+The following NEW packages will be INSTALLED:
+
+  anarci             bioconda/noarch::anarci-2024.05.21-pyhdfd78af_0 
+  biopython          pkgs/main/linux-64::biopython-1.86-py314h47b2149_0 
+  gsl                pkgs/main/linux-64::gsl-2.7.1-h6e86dc7_1 
+  hmmer              bioconda/linux-64::hmmer-3.4-hb6cb901_4 
+  libgcc-ng          conda-forge/linux-64::libgcc-ng-15.2.0-h69a702a_19 
+  libgfortran-ng     conda-forge/linux-64::libgfortran-ng-15.2.0-h69a702a_19 
+  libstdcxx-ng       conda-forge/linux-64::libstdcxx-ng-15.2.0-hdf11a46_19 
+  mpi                pkgs/main/linux-64::mpi-1.0-openmpi 
+  openmpi            conda-forge/linux-64::openmpi-4.1.6-hc5af2df_101 
+  zlib               conda-forge/linux-64::zlib-1.3.2-h25fd6f3_2 
+
+
+Proceed ([y]/n)? y
+
+
+Downloading and Extracting Packages:
+                                                                                
+Preparing transaction: done                                                     
+Verifying transaction: done                                                     
+Executing transaction: -                                                        
+For Linux 64, Open MPI is built with CUDA awareness but this support is disabled by default.
+To enable it, please set the environment variable OMPI_MCA_opal_cuda_support=true before
+launching your MPI processes. Equivalently, you can set the MCA parameter in the command line:
+mpiexec --mca opal_cuda_support 1 ...
+ 
+In addition, the UCX support is also built but disabled by default.
+To enable it, first install UCX (conda install -c conda-forge ucx). Then, set the environment
+variables OMPI_MCA_pml=&quot;ucx&quot; OMPI_MCA_osc=&quot;ucx&quot; before launching your MPI processes.
+Equivalently, you can set the MCA parameters in the command line:
+mpiexec --mca pml ucx --mca osc ucx ...
+Note that you might also need to set UCX_MEMTYPE_CACHE=n for CUDA awareness via UCX.
+Please consult UCX&apos;s documentation for detail.
+ 
+
+done
+</pre>
+
+<h3>Installing nanobody builder itself</h3>
+<pre>
+(nb_builder) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ pip install ImmuneBuilder
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting ImmuneBuilder
+  Using cached ImmuneBuilder-1.2-py3-none-any.whl.metadata (7.7 kB)
+Requirement already satisfied: numpy in ./anaconda3/envs/nb_builder/lib/python3.14/site-packages (from ImmuneBuilder) (2.4.4)
+Requirement already satisfied: scipy&gt;=1.6 in ./anaconda3/envs/nb_builder/lib/python3.14/site-packages (from ImmuneBuilder) (1.17.1)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting einops&gt;=0.3 (from ImmuneBuilder)
+  Downloading einops-0.8.2-py3-none-any.whl.metadata (13 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting torch&gt;=1.8 (from ImmuneBuilder)
+  Downloading torch-2.12.0-cp314-cp314-manylinux_2_28_x86_64.whl.metadata (31 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting requests (from ImmuneBuilder)
+  Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting filelock (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading filelock-3.29.0-py3-none-any.whl.metadata (2.0 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting typing-extensions&gt;=4.10.0 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Using cached typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting setuptools&lt;82 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading setuptools-81.0.0-py3-none-any.whl.metadata (6.6 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting sympy&gt;=1.13.3 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Using cached sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting networkx&gt;=2.5.1 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting jinja2 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Using cached jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting fsspec&gt;=0.8.5 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading fsspec-2026.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting cuda-toolkit==13.0.2 (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading cuda_toolkit-13.0.2-py2.py3-none-any.whl.metadata (9.4 kB)
+Collecting nvidia-cublas&lt;=13.1.1.3,&gt;=13.1.0.3 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cublas-13.1.1.3-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting cuda-bindings&lt;14,&gt;=13.0.3 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading cuda_bindings-13.2.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (2.3 kB)
+Collecting nvidia-cudnn-cu13==9.20.0.48 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cudnn_cu13-9.20.0.48-py3-none-manylinux_2_27_x86_64.whl.metadata (1.9 kB)
+Collecting nvidia-cusparselt-cu13==0.8.1 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl.metadata (12 kB)
+Collecting nvidia-nccl-cu13==2.29.7 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_nccl_cu13-2.29.7-py3-none-manylinux_2_18_x86_64.whl.metadata (2.1 kB)
+Collecting nvidia-nvshmem-cu13==3.4.5 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (2.1 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting triton==3.7.0 (from torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading triton-3.7.0-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-runtime==13.0.96.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cufft==12.0.0.61.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cufile==1.15.1.6.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-cupti==13.0.85.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-curand==10.4.0.35.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cusolver==12.0.4.66.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-cusparse==12.6.3.3.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (1.8 kB)
+Collecting nvidia-nvjitlink==13.0.88.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_nvjitlink-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-cuda-nvrtc==13.0.88.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl.metadata (1.7 kB)
+Collecting nvidia-nvtx==13.0.85.* (from cuda-toolkit[cudart,cufft,cufile,cupti,curand,cusolver,cusparse,nvjitlink,nvrtc,nvtx]==13.0.2; platform_system == &quot;Linux&quot;-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl.metadata (1.8 kB)
+Collecting cuda-pathfinder~=1.1 (from cuda-bindings&lt;14,&gt;=13.0.3-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Downloading cuda_pathfinder-1.5.4-py3-none-any.whl.metadata (1.9 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting mpmath&lt;1.4,&gt;=1.1.0 (from sympy&gt;=1.13.3-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Using cached mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting MarkupSafe&gt;=2.0 (from jinja2-&gt;torch&gt;=1.8-&gt;ImmuneBuilder)
+  Using cached markupsafe-3.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting charset_normalizer&lt;4,&gt;=2 (from requests-&gt;ImmuneBuilder)
+  Downloading charset_normalizer-3.4.7-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (40 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting idna&lt;4,&gt;=2.5 (from requests-&gt;ImmuneBuilder)
+  Downloading idna-3.15-py3-none-any.whl.metadata (7.7 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting urllib3&lt;3,&gt;=1.26 (from requests-&gt;ImmuneBuilder)
+  Downloading urllib3-2.7.0-py3-none-any.whl.metadata (6.9 kB)
+<font color="#A2734C">WARNING: Cache entry deserialization failed, entry ignored</font>
+Collecting certifi&gt;=2023.5.7 (from requests-&gt;ImmuneBuilder)
+  Downloading certifi-2026.4.22-py3-none-any.whl.metadata (2.5 kB)
+Using cached ImmuneBuilder-1.2-py3-none-any.whl (32 kB)
+Downloading einops-0.8.2-py3-none-any.whl (65 kB)
+Downloading torch-2.12.0-cp314-cp314-manylinux_2_28_x86_64.whl (532.3 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">532.3/532.3 MB</font> <font color="#C01C28">32.4 MB/s</font>  <font color="#A2734C">0:00:14</font>
+Downloading cuda_toolkit-13.0.2-py2.py3-none-any.whl (2.4 kB)
+Downloading nvidia_cudnn_cu13-9.20.0.48-py3-none-manylinux_2_27_x86_64.whl (366.2 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">366.2/366.2 MB</font> <font color="#C01C28">30.1 MB/s</font>  <font color="#A2734C">0:00:11</font>
+Downloading nvidia_cusparselt_cu13-0.8.1-py3-none-manylinux2014_x86_64.whl (170.1 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">170.1/170.1 MB</font> <font color="#C01C28">36.0 MB/s</font>  <font color="#A2734C">0:00:04</font>
+Downloading nvidia_nccl_cu13-2.29.7-py3-none-manylinux_2_18_x86_64.whl (206.0 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">206.0/206.0 MB</font> <font color="#C01C28">34.2 MB/s</font>  <font color="#A2734C">0:00:06</font>
+Downloading nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (60.4 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">60.4/60.4 MB</font> <font color="#C01C28">42.0 MB/s</font>  <font color="#A2734C">0:00:01</font>
+Downloading triton-3.7.0-cp314-cp314-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (201.5 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">201.5/201.5 MB</font> <font color="#C01C28">34.7 MB/s</font>  <font color="#A2734C">0:00:05</font>
+Downloading cuda_bindings-13.2.0-cp314-cp314-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (6.2 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">6.2/6.2 MB</font> <font color="#C01C28">29.5 MB/s</font>  <font color="#A2734C">0:00:00</font>
+Downloading cuda_pathfinder-1.5.4-py3-none-any.whl (51 kB)
+Downloading nvidia_cublas-13.1.1.3-py3-none-manylinux_2_27_x86_64.whl (423.1 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">423.1/423.1 MB</font> <font color="#C01C28">18.0 MB/s</font>  <font color="#A2734C">0:00:18</font>
+Downloading nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_x86_64.whl (10.7 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">10.7/10.7 MB</font> <font color="#C01C28">33.1 MB/s</font>  <font color="#A2734C">0:00:00</font>
+Downloading nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (90.2 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">90.2/90.2 MB</font> <font color="#C01C28">36.0 MB/s</font>  <font color="#A2734C">0:00:02</font>
+Downloading nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.2 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">2.2/2.2 MB</font> <font color="#C01C28">33.9 MB/s</font>  <font color="#A2734C">0:00:00</font>
+Downloading nvidia_cufft-12.0.0.61-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (214.1 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">214.1/214.1 MB</font> <font color="#C01C28">38.6 MB/s</font>  <font color="#A2734C">0:00:05</font>
+Downloading nvidia_cufile-1.15.1.6-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.2 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">1.2/1.2 MB</font> <font color="#C01C28">15.1 MB/s</font>  <font color="#A2734C">0:00:00</font>
+Downloading nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_x86_64.whl (59.5 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">59.5/59.5 MB</font> <font color="#C01C28">34.5 MB/s</font>  <font color="#A2734C">0:00:01</font>
+Downloading nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_x86_64.whl (200.9 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">200.9/200.9 MB</font> <font color="#C01C28">30.7 MB/s</font>  <font color="#A2734C">0:00:06</font>
+Downloading nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (145.9 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">145.9/145.9 MB</font> <font color="#C01C28">31.3 MB/s</font>  <font color="#A2734C">0:00:04</font>
+Downloading nvidia_nvjitlink-13.0.88-py3-none-manylinux2010_x86_64.manylinux_2_12_x86_64.whl (40.7 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">40.7/40.7 MB</font> <font color="#C01C28">23.6 MB/s</font>  <font color="#A2734C">0:00:01</font>
+Downloading nvidia_nvtx-13.0.85-py3-none-manylinux1_x86_64.manylinux_2_5_x86_64.whl (148 kB)
+Downloading setuptools-81.0.0-py3-none-any.whl (1.1 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">1.1/1.1 MB</font> <font color="#C01C28">22.0 MB/s</font>  <font color="#A2734C">0:00:00</font>
+Downloading fsspec-2026.4.0-py3-none-any.whl (203 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   <font color="#729C1F">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</font> <font color="#26A269">2.1/2.1 MB</font> <font color="#C01C28">26.2 MB/s</font>  <font color="#A2734C">0:00:00</font>
+Using cached sympy-1.14.0-py3-none-any.whl (6.3 MB)
+Using cached mpmath-1.3.0-py3-none-any.whl (536 kB)
+Using cached typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading filelock-3.29.0-py3-none-any.whl (39 kB)
+Using cached jinja2-3.1.6-py3-none-any.whl (134 kB)
+Using cached markupsafe-3.0.3-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (23 kB)
+Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+Downloading charset_normalizer-3.4.7-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (215 kB)
+Downloading idna-3.15-py3-none-any.whl (72 kB)
+Downloading urllib3-2.7.0-py3-none-any.whl (131 kB)
+Downloading certifi-2026.4.22-py3-none-any.whl (135 kB)
+Installing collected packages: nvidia-cusparselt-cu13, mpmath, cuda-toolkit, urllib3, typing-extensions, triton, sympy, setuptools, nvidia-nvtx, nvidia-nvshmem-cu13, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-curand, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, networkx, MarkupSafe, idna, fsspec, filelock, einops, cuda-pathfinder, charset_normalizer, certifi, requests, nvidia-cusparse, nvidia-cufft, nvidia-cublas, jinja2, cuda-bindings, nvidia-cusolver, nvidia-cudnn-cu13, torch, ImmuneBuilder
+  Attempting uninstall: setuptools
+    Found existing installation: setuptools 82.0.1
+    Uninstalling setuptools-82.0.1:
+      Successfully uninstalled setuptools-82.0.1
+Successfully installed ImmuneBuilder-1.2 MarkupSafe-3.0.3 certifi-2026.4.22 charset_normalizer-3.4.7 cuda-bindings-13.2.0 cuda-pathfinder-1.5.4 cuda-toolkit-13.0.2 einops-0.8.2 filelock-3.29.0 fsspec-2026.4.0 idna-3.15 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 nvidia-cublas-13.1.1.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.20.0.48 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.1 nvidia-nccl-cu13-2.29.7 nvidia-nvjitlink-13.0.88 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 requests-2.34.2 setuptools-81.0.0 sympy-1.14.0 torch-2.12.0 triton-3.7.0 typing-extensions-4.15.0 urllib3-2.7.0</pre>
+<h3>Running the script</h3>
+<p>The script itself is below, the scripts name is nb_script_run.py</p>
+
+<pre><code class = "language-python">
+from ImmuneBuilder import NanoBodyBuilder2
+predictor = NanoBodyBuilder2()
+
+output_file = "my_cool_nanobody.pdb"
+sequence = {'H': 'QVQLVETGGGLVQAGGSLRLSCAASGSTFSHNAGGWYRQAPEKQRELVAGISSDGNINYADSVKDRFTISRDQASNTMYLQMNNLKPEDTAVYVCNIRGSYGNTYYSRWGQGTQVTVSS'}
+
+nanobody = predictor.predict(sequence)
+nanobody.save(output_file)
+</code></pre>
+
+<p>Checking that python is installed</p>
+<pre>
+(nb_builder) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ python --version
+Python 3.14.4
+</pre>
+<p>running the script</p>
+<pre>
+(nb_builder) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ python nb_script_run.py
+Downloading weights for nanobody_model_1...
+Downloading weights for nanobody_model_2...
+Downloading weights for nanobody_model_3...
+Downloading weights for nanobody_model_4...
+(nb_builder) <font color="#26A269"><b>iso-labtech@iso-linux</b></font>:<font color="#12488B"><b>~</b></font>$ 
+</pre>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js"></script>
+</body>
+</html>
