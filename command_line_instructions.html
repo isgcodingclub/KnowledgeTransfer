@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>How to work with biophi server</title>
+<style>
+
+ /* A4 page size for print */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0; /* visible background outside the page */
+  }
+
+  /* The A4 "page" container */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 10mm auto;       /* centers it on screen */
+    padding: 5mm;           /* inner margins (adjust as needed) */
+    background: white;
+    box-sizing: border-box;
+
+    /* Optional: make it look like a real page */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  /* When actually printing, remove the shadow and centering chrome */
+  @media print {
+    body {
+      background: white;
+    }
+
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+    }
+  }
+  
+</style>
+
+</head><title>Summary of the command line instructions</title></head>
+<body>
+<div class="page">
+<h3>Trimmomatic instructions</h3>
+<h6>Single end trimming of the adapters</h6>
+<pre><code>
+java -jar /home/iso-labtech/anaconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic/trimmomatic.jar \
+    SE \
+    -threads 4 \
+    A15-heated_R1_001.fastq.gz \
+    A15-heated_R1_001_trimmed.fastq.gz \
+    ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 \
+    LEADING:3 \
+    TRAILING:3 \
+    SLIDINGWINDOW:4:15 \
+    MINLEN:36
+</code></pre>
+
+<p>You can copy that command directly and it will work</p>
+<p>Below is the same command just with some comments, do not copy it with columns</p>
+<pre><code>
+java -jar /home/iso-labtech/anaconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic/trimmomatic.jar \
+    SE \ # single end trimming
+    -threads 4 \ # how many operations one CPU runs, reduce to 1 for slow tasks
+    A15-heated_R1_001.fastq.gz \ # input file
+    A15-heated_R1_001_trimmed.fastq.gz \ # output file
+    ILLUMINACLIP:TruSeq3-SE.fa:2:30:10 \ # ILLumina clip command
+    LEADING:3 \
+    TRAILING:3 \
+    SLIDINGWINDOW:4:15 \
+    MINLEN:36
+</code></pre>
+
+<p>Notes on the Illumina clip commands</p>
+<pre><code>
+ILLUMINACLIP:fastaWithAdaptersEtc:seed mismatches:palindrome clip
+threshold:simple clip threshold
+</code></pre>
+<p>The way how the Illumina clip works. 
+
+<p>It selects the 16 nucleotide window within the adapter called seed and using sliding window approach moves it across the read sequence. The Each nucleotide is converted in the matrix with one row and four columns. This makes it 64 digit matrix that is compared against the 16 nucleotide fragments within the read. popcount operation that checks how many differences there are in matrixes is performed. In the example the cutoff is set for 2 changes</p>
+<p>ILLUMINACLIP:TruSeq3-SE.fa:<span style ="background-color:yellow">2</span>:30:10 </p>
+<p>Once the fragment that satisfies the condition is found, the full alignment algorithm is performed for entire adapter. The mismatch score is calculated.</p>
+<blockquote>
+The full alignment score is calculated as follows. Each matching base increases the alignment
+score by 0.6, while each mismatch reduces the alignment score by Q/10 (where Q is phred quality at this nucleotide). By considering the
+quality of the base calls, mismatches caused by read errors have less impact. A perfect match
+of a 12 base sequence will score just over 7, while 25 bases are needed to score 15. As such
+we recommend values of between 7 - 15 as the threshold value for simple alignment mode. 
+</blockquote>
+<p>In the example above the simple clip score is set to 10</p>
+<p>ILLUMINACLIP:TruSeq3-SE.fa:2:30:<span style ="background-color:yellow">10</span></p>
+<p>If the settings are set to the SE mode the palindrome threshold is not applied because it requires the paired end mode (forward and reverse reads to be trimmed simultaneously</p>
+
+<p>ILLUMINACLIP:TruSeq3-SE.fa:2:<span style ="background-color:yellow">30</span>:10</p>
+<p>Sop in single read SE mode 30 setting is just being ignored</p>
+<h3>Paired end read mode</h3>
+<p>To clip all possible adapter contamination and ensure that all forward and reverse reads have the same number of strands you will need to provide the fasta with adapters
+</p>
+<p>The contents of it are shown below</p>
+<code></pre>
+<p>&gt;Illumina_TruSeq_R1</p>
+<p>AGATCGGAAGAGCACACGTCTGAACTCCAGTCA</p>
+<p>&gt;Illumina_TruSeq_R2</p>
+<p>AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT</p>
+<p>&gt;Nextera_R1</p>
+<p>CTGTCTCTTATACACATCTCCGAGCCCACGAGAC</p>
+<p>&gt;Nextera_R2</p>
+<p>CTGTCTCTTATACACATCTGACGCTGCCGACGA</p>
+<p>&gt;PolyG</p>
+<p>GGGGGGGGGGGGG</p>
+<p>&gt;PolyA</p>
+<p>AAAAAAAAAAAAA</p>
+</pre></code>
+<p>In the example below the fasta file is called contaminant1.fa</p>
+<pre></code>
+java -jar /home/iso-labtech/anaconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic/trimmomatic.jar  PE \
+-phred33 input_read1.fastq input_read2.fastq \
+output_read1_paired.fastq output_read1_unpaired.fastq output_read2_paired.fastq output_read2_unpaired.fastq \
+ILLUMINACLIP:contaminant1.fa:2:30:10 \
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:10
+</code></pre>
+</div>
+</body>
+</html>
