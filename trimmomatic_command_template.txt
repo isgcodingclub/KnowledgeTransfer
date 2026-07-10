@@ -1,0 +1,1 @@
+java -jar /home/iso-labtech/anaconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic/trimmomatic.jar PE -phred33 input_read1.fastq input_read2.fastq output_read1_paired.fastq output_read1_unpaired.fastq output_read2_paired.fastq output_read2_unpaired.fastq LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:10
