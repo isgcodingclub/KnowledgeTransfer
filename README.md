@@ -32,7 +32,8 @@
 
 <br>
 <h3>App programming</h3>
-<ul><li>Basic interface and common widgets</li>
+<ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/app_programming/Single_page_app_template.html">Single page app template</a></li>
+<li>Basic interface and common widgets</li>
 <li>Multipage app</li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/html_css_docs/HTML_CHEET_SHEET.html">html-css for report generation</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/app_programming/packaging_the_files_pyinstaller.html">Packaging app to exe using Pyinstaller</a></li>
