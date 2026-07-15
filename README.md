@@ -42,7 +42,8 @@
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/nb_builder_instructions12.html"</a>Nanobody builder</li>
 <li><a href = "https://github.com/s-andrews/fastqc">fastqc</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/trimmomatic_command_template.html">trimmomatic</a></li>
-<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/fast-q_join_command.html">fastq-join</a></li></ul>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/fast-q_join_command.html">fastq-join</a></li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/command_line_instructions.html">command line instructions NGS</a></li></ul>
 
 <h3>Other stuff</h3>
 <ul><li>Levensthein distances and ratios</li></ul>
