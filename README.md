@@ -48,7 +48,7 @@
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/command_line_instructions.html">command line instructions NGS</a></li></ul>
 
 <h3>Other stuff</h3>
-<ul><li>Levensthein distances and ratios</li></ul>
+<ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/other_stuff/levensthein_basic.py">Levensthein distances basic example</a></li></ul>
 
 <h3>Tips and tricks</h3>
 <p>To fix Pycharm intendation error do Ctrl Alt I</p>
