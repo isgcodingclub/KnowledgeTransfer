@@ -1,18 +1,56 @@
 <!DOCTYPE HTML>
 <html>
-<head><title>fastq-join command template</title></head>
+<head><title>Trimmomatic command</title></head>
 <body>
+<h3>This is trimmomatic command for the trimmimg if there is no adapter contamination</h3>
 <code><pre>
-fastq-join -p <span style = "background-color : yellow">5</span> -m <span style = "background-color : #D8BFD8">27</span> <span style = "background-color : #ADD8E6">A15-heated_read1_paired.fastq</span> <span style = "background-color : #FFA756">A15-heated_read2_paired.fastq</span> -o <span style = "background-color : #C4A484">A15-heated_results</span>%.fastq
+<span style = "background-color : yellow">java -jar /home/iso-labtech/anaconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic/trimmomatic.jar</span> PE \
+-phred33 \
+<span style = "background-color : #D8BFD8">input_read1.fastq</span> \
+<span style = "background-color : #ADD8E6">input_read2.fastq</span> \
+<span style = "background-color : #FFA756">output_read1_paired.fastq \
+output_read1_unpaired.fastq</span> \
+<span style = "background-color : #C4A484">output_read2_paired.fastq \
+output_read2_unpaired.fastq</span> \
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:10
+
 </pre></code>
 <br>
-<p><span style = "background-color : yellow">____</span> - the % of the overlap that it allowed to be mismatched</p>
+<p><span style = "background-color : yellow">____</span> - the path to where the java command is storted</p>
 
-<p><span style = "background-color : #D8BFD8">____</span> - the minimum length of the overlap</p>
+<p><span style = "background-color : #D8BFD8">____</span> - input forward read fastq path</p>
 
-<p><span style = "background-color : #ADD8E6">____</span> - the path to your forward <b>paired</b> read file including the .fastq extension. You need to change that, your files will have different name.</p>
+<p><span style = "background-color : #ADD8E6">____</span> - input reverse read fastq path</p>
 
-<p><span style = "background-color : #FFA756">____</span> - the path to your reverse <b>paired</b> read file including the .fastq extension. You need to change that, your files will have different name.</p>
-<p><span style = "background-color : #C4A484">____</span> - the name of your results file, you will need to change the coloured bits, do not change %.fastq</p>
+<p><span style = "background-color : #FFA756">____</span> - forward read output files, paired and unpaired. Order matters.</p>
+<p><span style = "background-color : #C4A484">____</span> - reverse read output files, paired and unpaired. Order matters.</p>
+
+<h3>If you need to cleave off adapters</h3>
+<code><pre>
+java -jar /home/iso-labtech/anaconda3/pkgs/trimmomatic-0.39-hdfd78af_2/share/trimmomatic/trimmomatic.jar  PE \
+-phred33 \
+input_read1.fastq input_read2.fastq \
+output_read1_paired.fastq \
+output_read1_unpaired.fastq \
+output_read2_paired.fastq \
+output_read2_unpaired.fastq \
+ILLUMINACLIP:contaminant.fa:2:30:10 \
+LEADING:3 TRAILING:3 SLIDINGWINDOW:4:15 MINLEN:10
+</pre></code>
+<p>The contents of contaminant.fa are shown below. This is fasta file</p>
+<code></pre>
+<p>&gt;Illumina_TruSeq_R1</p>
+<p>AGATCGGAAGAGCACACGTCTGAACTCCAGTCA</p>
+<p>&gt;Illumina_TruSeq_R2</p>
+<p>AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT</p>
+<p>&gt;Nextera_R1</p>
+<p>CTGTCTCTTATACACATCTCCGAGCCCACGAGAC</p>
+<p>&gt;Nextera_R2</p>
+<p>CTGTCTCTTATACACATCTGACGCTGCCGACGA</p>
+<p>&gt;PolyG</p>
+<p>GGGGGGGGGGGGG</p>
+<p>&gt;PolyA</p>
+<p>AAAAAAAAAAAAA</p>
+</pre></code>
 </body>
 </html>
