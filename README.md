@@ -40,7 +40,7 @@
 <h3>Linux stuff</h3>
 <ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/biophi_server-ready.html">Humanisation using biophi</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/nb_builder_instructions12.html"</a>Nanobody builder</li>
-<li>fastqc</li>
+<li><a href = "https://github.com/s-andrews/fastqc">fastqc</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/trimmomatic_command_template.html">trimmomatic</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/fast-q_join_command.html">fastq-join</a></li></ul>
 
