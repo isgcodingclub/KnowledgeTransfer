@@ -41,7 +41,7 @@
 <ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/biophi_server-ready.html">Humanisation using biophi</a></li>
 <li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/linux_stuff/nb_builder_instructions12.html"</a>Nanobody builder</li>
 <li>fastqc</li>
-<li>trimmomatic</li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/trimmomatic_command_template.html">trimmomatic</a></li>
 <li>fastq-join</li></ul>
 
 <h3>Other stuff</h3>
