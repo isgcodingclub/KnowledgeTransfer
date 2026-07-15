@@ -2,8 +2,8 @@
 <p>Below is the list of the resources and tutoriuals, grouped by topic</p>
 <br>
 <h3>Creation of the Python environments</h3>
-<a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/tutorial_environments/environment_and_jupyter.html">How to create environments on Windows</a>
-<a href = "">How to create environment on Linux</a>
+<ul><li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/tutorial_environments/environment_and_jupyter.html">How to create environments on Windows</a></li>
+<li><a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/tutorial_environments/linux_env.html">How to create environment on Linux</a></li></ul>
 
 <h3>Working with tabular data</h3>
 <a href = "https://github.com/isgcodingclub/KnowledgeTransfer/blob/main/lesson_7_the_one.ipynb">Pandas. Work with csv and excel files</a>
