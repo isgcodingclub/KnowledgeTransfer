@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>Single page app and common widgets</title>
+<style>
+
+ /* A4 page size for print */
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background: #f0f0f0; /* visible background outside the page */
+  }
+
+  /* The A4 "page" container */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 10mm auto;       /* centers it on screen */
+    padding: 20mm;           /* inner margins (adjust as needed) */
+    background: white;
+    box-sizing: border-box;
+
+    /* Optional: make it look like a real page */
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  }
+
+  /* When actually printing, remove the shadow and centering chrome */
+  @media print {
+    body {
+      background: white;
+    }
+
+    .page {
+      margin: 0;
+      box-shadow: none;
+      page-break-after: always;
+    }
+  }
+
+
+
+ .highlighted {
+      padding: 10px;
+      background: white;
+      color: black;
+      border-radius: 6px;
+border-color: black;
+font-weight: 600;
+inset: 10px;
+border-style: solid;
+}
+</style>
+<link href="https://cdn.jsdelivr.net/npm/prismjs-okaidia-theme@0.0.1/prism-okaidia.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="page">
+<h1>PyQT6 tutorial</h1>
+<p><a href = "https://www.pythonguis.com/pyqt6-tutorial/"> Link to the resource</a></p>
+<p>PyQT6 is a Python framework for writing the interfaces</p>
+
+<h3>Installation</h3>
+<pre><code>
+pip install PyQt6
+</code></pre>
+
+<h3>Single page app</h3>
+<pre><code class = "language-python">
+# Basic one page app
+
+from PyQt6.QtWidgets import (QMainWindow, QWidget, 
+QVBoxLayout, QApplication)
+
+
+class MainWindow(QMainWindow): # QMainWindow widget
+    def __init__(self):
+        super().__init__() # is necessary to inherit all atributes
+        self.setWindowTitle("Your window title") # set window title
+
+        self.main_layout = QVBoxLayout() # choose the layout
+
+        # setting up the central widget
+	# You absolutely have to have it in the one page app
+	# For it to work
+        self.central_widget = QWidget()
+        self.central_widget.setLayout(self.main_layout)
+        self.setCentralWidget(self.central_widget)
+        self.setLayout(self.main_layout)
+
+
+app = QApplication([])  # does not accept the command line arguments
+window = MainWindow() # Creating the object
+window.show() # using the inbuild show method
+
+# executing the app
+app.exec()
+</code></pre>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js"></script>
+</body>
+</html>
